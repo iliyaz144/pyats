@@ -1,0 +1,15 @@
+self.enable_prompt = r'^(.*?)RP/\S+\d+(/\S+)?/\S+\d+:(%N|ios|xr)\s?#\s?$'
+
+self.enable_prompt = r'^(.*?)RP/\d+/\S+/\S+\d+:(%N|ios|xr)\s?#\s?$'
+		
+self.enable_prompt = r'^(.*?)RP/\S+\d+(/\S+)?/\S+\d+:(%N|ios|xr)\s?#\s?$'
+
+^(.*?)RP/\S+\d+(/\S+)?/\S+\d+:(.*)\s?#\s?$
+
+RP/\S+(/\S+)?/\S+:(.+)#
+
+
+
+RP/B1/CB0/CPU2:AMSNCS01-PN1#
+
+RP/0/RSP0/CPU0:Automation-ASR9K-PE1
