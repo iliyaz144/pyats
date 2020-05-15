@@ -8,7 +8,7 @@ self.enable_prompt = r'^(.*?)RP/\S+\d+(/\S+)?/\S+\d+:(%N|ios|xr)\s?#\s?$'
 
 RP/\S+(/\S+)?/\S+:(.+)#
 
-
+/usr/local/lib/python3.6/site-packages/unicon/plugins/iosxr/
 
 RP/B1/CB0/CPU2:AMSNCS01-PN1#
 
