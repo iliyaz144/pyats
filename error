@@ -1,0 +1,116 @@
+>>> from genie.testbed import load
+>>> tb = load('inf_testbed.yml')
+>>> dev = tb.devices['AMSNCS01-SU1']
+>>>
+>>>
+>>> dev.connect()
+[2020-05-15 13:58:25,870] +++ AMSNCS01-SU1 logfile /tmp/AMSNCS01-SU1-cli-20200515T135825869.log +++
+[2020-05-15 13:58:25,872] +++ Unicon plugin iosxr +++
+
+
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    !   NOTICE - PROPRIETARY SYSTEM                                                    !
+    !                                                                                  !
+    !  This system is intended to be used solely by authorized users in the course of  !
+    !  legitimate corporate business. As permitted by law, users are monitored to the  !
+    !  extent necessary to properly administer the system, to identify unauthorized    !
+    !  users or users operating beyond their proper authority, and to investigate      !
+    !  improper access or use. By accessing this system, you are consenting to this    !
+    !  monitoring.                                                                     !
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+[2020-05-15 13:58:26,292] +++ connection to spawn: ssh -l mseauto 166.34.89.110 -p 22, id: 140157451011240 +++
+[2020-05-15 13:58:26,293] connection to AMSNCS01-SU1
+Password:
+
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    ! NO CHANGES TO THIS CONFIG ARE TO BE MADE !
+    !  WITHOUT ENGINEERING OR IP NOC SUPPORT!  !
+    !                                          !
+    !      TACACS LOGS WILL BE AUDITED! ! !    !
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+RP/B0/CB0/CPU0:AMSNCS01-SU1#Traceback (most recent call last):
+  File "src/unicon/statemachine/statemachine.py", line 719, in unicon.statemachine.statemachine.StateMachine.go_to
+  File "src/unicon/statemachine/statetransition.py", line 486, in unicon.statemachine.statetransition.AnyStateTransition.do_transitions
+  File "src/unicon/eal/dialogs.py", line 457, in unicon.eal.dialogs.Dialog.process
+  File "src/unicon/eal/dialog_processor.py", line 306, in unicon.eal.dialog_processor.SimpleDialogProcessor.process
+  File "src/unicon/eal/dialog_processor.py", line 265, in unicon.eal.dialog_processor.SimpleDialogProcessor.timeout_handler
+unicon.core.errors.TimeoutError: timeout occurred:
+              timeout value: 60
+              last_command: 'vdsimseauto\r'
+             pattern: ['^.*?% (Bad passwords|Access denied|Authentication failed)', '^.*Login incorrect', '^.*([Uu]sername|[Ll]ogin): ?$', '^.*User Access Verification', '^.*[Pp]assword( for )?(\\S+)?: ?$', '^.*Enter secret(\\sagain)?:\\s?$', 'Escape character is .*\\n', '^.*RETURN to get started', 'Are you sure you want to continue connecting \\(yes/no(/\\[fingerprint\\])?\\)', '^.*(Connection refused|Connection reset by peer|Network is down|closed by remote host)', 'Received disconnect from .*:', 'Hit Enter to proceed:', '^(.*?)Press Ctrl\\+x to Exit the session', '^(.*?)Connected.', 'Uncommitted changes found, commit them.*$', 'Do you wish to proceed?.*$', "^.*Please issue \\'show configuration failed \\[inheritance\\].*[\\r\\n]*", 'Uncommitted changes found, commit them.*$', 'Do you wish to proceed?.*$', "^.*Please issue \\'show configuration failed \\[inheritance\\].*[\\r\\n]*", '^(.*?)(?:\\[sysadmin-vm:0_.*:([\\s\\S]+)?\\]\\s?\\$\\s?|[\\r\\n]+\\s?#\\s?)$', '^(.*?)(?:sysadmin-vm:0_(.*)\\(config.*\\)\\s?#\\s?|RP/\\S+\\(admin-config\\)\\s?#\\s?)$', '^(.*?)(?:sysadmin-vm:0_(.*)\\s?#\\s?$|RP/\\S+\\(admin\\)\\s?#\\s?)$', '^(.*?)(?:\\[xr-vm_.*:([\\s\\S]+)?\\]\\s?\\$\\s?|[\\r\\n]+\\s?#\\s?)$', '^(.*?)RP/\\S+\\(config.*\\)\\s?#\\s?$', '^(.*?)RP/\\d+(/\\S+)?/\\S+\\d+:(AMSNCS01-SU1|ios|xr)\\s?#\\s?$', '^.*--\\s?[Mm]ore\\s?--.*$']
+             buffer:'\r\n\r\n    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\r\n    ! NO CHANGES TO THIS CONFIG ARE TO BE MADE !\r\n    !  WITHOUT ENGINEERING OR IP NOC SUPPORT!  !\r\n    !                                          !\r\n    !      TACACS LOGS WILL BE AUDITED! ! !    !\r\n    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\r\n\r\n\r\n\r\nRP/B0/CB0/CPU0:AMSNCS01-SU1#'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "src/unicon/bases/connection.py", line 627, in unicon.bases.connection.Connection.connect
+  File "src/unicon/bases/routers/connection_provider.py", line 144, in unicon.bases.routers.connection_provider.BaseSingleRpConnectionProvider.connect
+  File "src/unicon/bases/routers/connection_provider.py", line 166, in unicon.bases.routers.connection_provider.BaseSingleRpConnectionProvider.establish_connection
+  File "src/unicon/statemachine/statemachine.py", line 722, in unicon.statemachine.statemachine.StateMachine.go_to
+unicon.core.errors.StateMachineError: Failed while bringing device to "any" state
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "src/genie/conf/base/device.py", line 636, in genie.conf.base.device.Device.connect
+  File "src/pyats/connections/manager.py", line 334, in pyats.connections.manager.ConnectionManager.connect
+  File "src/unicon/bases/connection.py", line 633, in unicon.bases.connection.Connection.connect
+unicon.core.errors.ConnectionError: failed to connect to AMSNCS01-SU1
+Failed while bringing device to "any" state
+>>>
+
+
+
+=================================================================================================================================
+
+
+>>> from genie.testbed import load
+>>>
+>>> tb = load('testbed1.yml')
+>>> dev = tb.devices['Automation-ASR9K-PE1']
+>>>
+>>>
+>>> dev.connect()
+[2020-05-15 13:57:42,359] +++ Automation-ASR9K-PE1 logfile /tmp/Automation-ASR9K-PE1-cli-20200515T135742357.log +++
+[2020-05-15 13:57:42,360] +++ Unicon plugin iosxr +++
+automation@166.34.68.111's password:
+[2020-05-15 13:57:43,226] +++ connection to spawn: ssh -l automation 166.34.68.111 -p 22, id: 140492955963464 +++
+[2020-05-15 13:57:43,227] connection to Automation-ASR9K-PE1
+
+
+
+RP/0/RSP0/CPU0:Automation-ASR9K-PE1#
+[2020-05-15 13:57:43,532] +++ initializing handle +++
+[2020-05-15 13:57:43,534] +++ Automation-ASR9K-PE1: executing command 'terminal length 0' +++
+terminal length 0
+Fri May 15 18:57:43.547 UTC
+RP/0/RSP0/CPU0:Automation-ASR9K-PE1#
+[2020-05-15 13:57:43,778] +++ Automation-ASR9K-PE1: executing command 'terminal width 0' +++
+terminal width 0
+Fri May 15 18:57:43.789 UTC
+RP/0/RSP0/CPU0:Automation-ASR9K-PE1#
+[2020-05-15 13:57:44,007] +++ Automation-ASR9K-PE1: config +++
+configure terminal
+Fri May 15 18:57:44.019 UTC
+RP/0/RSP0/CPU0:Automation-ASR9K-PE1(config)#no logging console
+RP/0/RSP0/CPU0:Automation-ASR9K-PE1(config)#logging console disable
+RP/0/RSP0/CPU0:Automation-ASR9K-PE1(config)#line console
+RP/0/RSP0/CPU0:Automation-ASR9K-PE1(config-line)#exec-timeout 0 0
+RP/0/RSP0/CPU0:Automation-ASR9K-PE1(config-line)#absolute-timeout 0
+RP/0/RSP0/CPU0:Automation-ASR9K-PE1(config-line)#session-timeout 0
+RP/0/RSP0/CPU0:Automation-ASR9K-PE1(config-line)#line default
+RP/0/RSP0/CPU0:Automation-ASR9K-PE1(config-line)#exec-timeout 0 0
+RP/0/RSP0/CPU0:Automation-ASR9K-PE1(config-line)#absolute-timeout 0
+RP/0/RSP0/CPU0:Automation-ASR9K-PE1(config-line)#session-timeout 0
+RP/0/RSP0/CPU0:Automation-ASR9K-PE1(config-line)#commit
+Fri May 15 18:57:44.747 UTC
+RP/0/RSP0/CPU0:Automation-ASR9K-PE1(config-line)#end
+RP/0/RSP0/CPU0:Automation-ASR9K-PE1#
+>>>
