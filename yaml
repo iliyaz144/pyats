@@ -1,0 +1,96 @@
+---
+testbed:
+  name: ciscoINF
+
+devices:
+  AMSNCS01-SU1:
+    os: iosxr
+    platform: ncs5k
+    type: iosxr
+    credentials: 
+      default:
+        username: "mseauto"
+        password: "vdsimseauto"
+
+    connections:
+      defaults:
+        class: unicon.Unicon
+      ssh:
+        protocol: ssh
+        ip: "166.34.89.110"
+        port: "22"
+
+  AMSNCS01-PN1:
+    os: iosxr
+    type: iosxr
+    platform: ncs5k
+    credentials: 
+      default:
+        username: "mseauto"
+        password: "vdsimseauto"
+
+    connections:
+      defaults:
+        class: unicon.Unicon
+      ssh:
+        protocol: ssh
+        ip: "166.34.89.119"
+        port: "22"
+
+  PRSNCS01:
+    os: iosxr
+    type: iosxr
+    platform: ncs5k
+    credentials: 
+      default:
+        username: "mseauto"
+        password: "vdsimseauto"
+
+    connections:
+      defaults:
+        class: unicon.Unicon
+      ssh:
+        protocol: ssh
+        ip: "166.34.89.29"
+        port: "22"
+
+
+---
+testbed:
+  name: ciscoINF
+
+devices:
+
+  ENG9E05:
+    os: iosxr
+    platform: asr9k
+    type: iosxr
+    tacacs:
+        username: enguser
+    passwords:
+        tacacs: enguser1
+
+    connections:
+      defaults:
+        class: unicon.Unicon
+      ssh:
+        protocol: ssh
+        ip: "166.38.213.179"
+        port: "22"
+
+  Automation-ASR9K-PE1:
+    os: iosxr
+    platform: asr9k
+    type: iosxr
+    credentials: 
+      default:
+        username: "automation"
+        password: "autoautO#1"
+
+    connections:
+      defaults:
+        class: unicon.Unicon
+      ssh:
+        protocol: ssh
+        ip: "166.34.68.111"
+        port: "22"
