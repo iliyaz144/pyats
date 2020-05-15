@@ -18,6 +18,8 @@ self.enable_prompt = r'^(.*?)RP/\S+\d+(/\S+)?/\S+\d+:(%N|ios|xr|\S+)\s?#\s?$’
 
 
 
+self.enable_prompt = r'^(.*?)RP/\S\d+(/\S+)?/\S+\d+:(%N|ios|xr|\S+)\s?#\s?$'    - new
+
 class IOSXRPatterns(GenericPatterns):
     def __init__(self):
         super().__init__()
