@@ -15,3 +15,16 @@ RP/B1/CB0/CPU2:AMSNCS01-PN1#
 RP/0/RSP0/CPU0:Automation-ASR9K-PE1
 
 self.enable_prompt = r'^(.*?)RP/\S+\d+(/\S+)?/\S+\d+:(%N|ios|xr|\S+)\s?#\s?$’
+
+
+
+class IOSXRPatterns(GenericPatterns):
+    def __init__(self):
+        super().__init__()
+        self.enable_prompt = r'^(.*?)RP/\d+(/\S+)?/\S+\d+:(%N|ios|xr|\S+)\s?#\s?$'
+        # don't use hostname match in config prompt - hostname may be truncated^RP/\S+(/\S+)?/\S+:(.+)#$
+        # see CSCve48115 and CSCve51502
+        self.run_prompt = r'(^.*?)\[xr-vm_.*:([\s\S]+)?\]\s?\$\s?$'
+        self.config_prompt = r'^(.*?)RP/\S+\(config.*\)\s?#\s?$'
+        self.telnet_prompt = r'^.*Escape character is.*$'
+        self.username_prompt = r'^.*([Uu]sername|[Ll]ogin):\s*$'
