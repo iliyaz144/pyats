@@ -17,6 +17,17 @@ RP/0/RSP0/CPU0:Automation-ASR9K-PE1
 self.enable_prompt = r'^(.*?)RP/\S+\d+(/\S+)?/\S+\d+:(%N|ios|xr|\S+)\s?#\s?$’
 
 
+---------------------------------------------------
+vanam.x.srilakshmi@verizon.com
+
+shayana.kadyan@verizon.com
+
+narendraprasad.bodireddy@verizon.com - LDS
+
+vignesh.mahalingam@verizon.com
+
+--------------------------------------------------------
+
 
 self.enable_prompt = r'^(.*?)RP/\S\d+(/\S+)?/\S+\d+:(%N|ios|xr|\S+)\s?#\s?$'    - new
 
